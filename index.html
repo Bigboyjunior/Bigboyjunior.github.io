@@ -1,88 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Typing Website</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            padding: 20px;
-        }
-        .container {
-            margin-top: 50px;
-        }
-        .buttons {
-            margin-top: 20px;
-        }
-        .typing-test {
-            display: none;
-            margin-top: 30px;
-        }
-        textarea {
-            width: 80%;
-            height: 100px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>Middle Click Redirect</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #000;
+    }
+    img {
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
-    <h1>This is my typing website.</h1>
-    <p>In this website, you can practice typing and even use the reading test. This website has all of my hard work put into it. Enjoy!</p>
-    
-    <div class="container">
-        <div class="buttons">
-            <button onclick="startTypingTest()">Typing Test</button>
-            <button onclick="startReadingTest()">Reading Test</button>
-        </div>
-    </div>
-    
-    <div id="typingTest" class="typing-test">
-        <p id="wordDisplay"></p>
-        <textarea id="typingArea" placeholder="Start typing here..." oninput="startTimer()"></textarea>
-        <p id="timer">Time Left: 15s</p>
-        <p id="result"></p>
-    </div>
-    
-    <script>
-        let words = ["apple", "banana", "cherry", "dog", "elephant", "forest", "grape", "house", "internet", "jungle"];
-        let timer;
-        let timeLeft = 15;
-        let hasStarted = false;
-        
-        function startTypingTest() {
-            document.getElementById("typingTest").style.display = "block";
-            document.getElementById("wordDisplay").innerText = words.sort(() => Math.random() - 0.5).join(" ");
-            document.getElementById("typingArea").value = "";
-            document.getElementById("result").innerText = "";
-            timeLeft = 15;
-            hasStarted = false;
-            document.getElementById("timer").innerText = "Time Left: 15s";
-        }
-        
-        function startTimer() {
-            if (!hasStarted) {
-                hasStarted = true;
-                timer = setInterval(() => {
-                    timeLeft--;
-                    document.getElementById("timer").innerText = "Time Left: " + timeLeft + "s";
-                    if (timeLeft <= 0) {
-                        clearInterval(timer);
-                        endTypingTest();
-                    }
-                }, 1000);
-            }
-        }
-        
-        function endTypingTest() {
-            let userText = document.getElementById("typingArea").value.trim().split(" ").length;
-            document.getElementById("result").innerText = "Words Typed: " + userText;
-            document.getElementById("typingArea").disabled = true;
-        }
-        
-        function startReadingTest() {
-            alert("Reading Test is not implemented yet!");
-        }
-    </script>
+  <img id="gif" src="https://media1.tenor.com/m/NAU5DQazc8EAAAAd/middleclick-middleclick-for-calculator.gif" alt="Middle Click Me">
+
+  <script>
+    const gif = document.getElementById('gif');
+
+    gif.addEventListener('mousedown', function (e) {
+      // Middle click is button 1
+      if (e.button === 1) {
+        window.location.href = 'https://striking-hugo-farms-located.trycloudflare.com';
+      }
+    });
+  </script>
 </body>
 </html>
+
